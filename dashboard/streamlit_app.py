@@ -1,5 +1,4 @@
 import streamlit as st
-import requests
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -46,232 +45,127 @@ def ai_table(df):
         }
     )
 
-st.markdown(
-    """
-    <style>
+st.markdown("""
+<style>
 
-    .stApp {
-    background:
-
-    radial-gradient(
-        circle at top left,
-        rgba(217,70,239,0.12),
-        transparent 30%
-    ),
-
-    radial-gradient(
-        circle at top right,
-        rgba(168,85,247,0.14),
-        transparent 26%
-    ),
-
-    radial-gradient(
-        circle at bottom left,
-        rgba(79,70,229,0.14),
-        transparent 28%
-    ),
-
-    linear-gradient(
-        135deg,
-        #020617,
-        #081028,
-        #111c44
-    );
-
-    background-attachment: fixed;
-    color: #e5e7eb;
+/* Main app */
+.stApp {
+    background-color: #050505;
+    color: #f3f4f6;
 }
 
-    section[data-testid="stSidebar"] {
-    background:
-    linear-gradient(
-        180deg,
-        rgba(20,11,45,0.95),
-        rgba(8,16,40,0.95)
-    );
+/* Main container */
+.block-container {
+    padding-top: 2rem;
+    max-width: 1250px;
+}
 
-    border-right: 1px solid rgba(217,70,239,0.22);
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #080808;
+    border-right: 1px solid rgba(255,255,255,0.06);
 }
 
 section[data-testid="stSidebar"] * {
-    color: #e9d5ff !important;
-    opacity: 1 !important;
-    font-weight: 600;
+    color: #d1d5db !important;
+    font-weight: 500;
 }
 
-    h1 {
-    font-size: 30px !important;
+/* Headings */
+h1 {
+    color: #ff69c7 !important;
+    font-size: 42px !important;
     font-weight: 800 !important;
+    line-height: 1.1;
     letter-spacing: -1px;
-    color: #e9d5ff !important;
-    text-shadow: 0 0 18px rgba(192,132,252,0.18);
-}
-    h2, h3 {
-    color: #f0abfc !important;
-    letter-spacing: -0.5px;
-    text-shadow: 0 0 12px rgba(217,70,239,0.14);
 }
 
-    div[data-testid="metric-container"] {
-        background: rgba(255,255,255,0.04);
-        backdrop-filter: blur(14px);
-        border: 1px solid rgba(217,70,239,0.35);
-        padding: 22px;
-        border-radius: 18px;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    }
-
-    div[data-testid="metric-container"] {
-        transition: all 0.25s ease;
-    }
-
-    div[data-testid="metric-container"]:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 30px rgba(217,70,239,0.25);
+h2, h3 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
 }
 
-    div[data-testid="stMetricValue"] {
-        color: #c084fc !important;
-        font-size: 42px !important;
-        font-weight: 800 !important;
-    }
+/* Metric cards */
+div[data-testid="metric-container"] {
+    background: #0c0c0f;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: none;
+}
 
-    div[data-testid="stMetricLabel"] {
-    color: #f9a8d4 !important;
-    font-size: 18px !important;
+/* Metric labels */
+div[data-testid="stMetricLabel"] {
+    color: #8b8f98 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px !important;
     font-weight: 600 !important;
-    letter-spacing: -0.3px;
-    opacity: 0.95 !important;
 }
 
-    div[data-testid="stAlert"] {
-        border-radius: 16px !important;
-        border: 1px solid rgba(217,70,239,0.35) !important;
-        background: rgba(22,101,52,0.22) !important;
-    }
-
-    div[data-testid="stAlert"] * {
-        color: #dcfce7 !important;
-        opacity: 1 !important;
-    }
-
-    div[data-testid="stDataFrame"] {
-        background: rgba(15,23,42,0.92) !important;
-        border: 1px solid rgba(56,189,248,0.20);
-        border-radius: 14px;
-        padding: 10px;
-    }
-
-    div[data-baseweb="select"] > div {
-        background-color: #0f172a !important;
-        color: #ffffff !important;
-        border: 1px solid rgba(56,189,248,0.35);
-        border-radius: 10px;
-    }
-
-    .block-container {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-/* Hide Streamlit top header bar */
-header[data-testid="stHeader"] {
-    background: transparent !important;
+/* Metric values */
+div[data-testid="stMetricValue"] {
+    color: #ff69c7 !important;
+    font-size: 42px !important;
+    font-weight: 800 !important;
 }
 
-/* Make sidebar dropdown menu readable */
-div[data-baseweb="popover"] {
-    background-color: #0f172a !important;
+/* Cards */
+.custom-card {
+    background: #0c0c0f;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 18px;
 }
 
-div[data-baseweb="menu"] {
-    background-color: #0f172a !important;
+/* Dataframes */
+div[data-testid="stDataFrame"] {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
-div[role="option"] {
-    background-color: #0f172a !important;
-    color: #f8fafc !important;
+/* Plotly charts */
+.js-plotly-plot {
+    border-radius: 18px;
+    overflow: hidden;
 }
 
-div[role="option"]:hover {
-    background-color: #1e293b !important;
-    color: #d946ef !important;
-}
-
-/* Download button styling */
-.stDownloadButton button {
-    background: linear-gradient(135deg, #0284c7, #38bdf8) !important;
+/* Buttons */
+button[kind="primary"] {
+    background: #ff69c7 !important;
     color: white !important;
     border: none !important;
     border-radius: 12px !important;
-    padding: 0.7rem 1.2rem !important;
-    font-weight: 800 !important;
 }
 
-/* Hide Plotly toolbar unless hover */
-.modebar {
-    opacity: 0 !important;
-    transition: opacity 0.2s ease-in-out;
+/* Divider spacing */
+hr {
+    border-color: rgba(255,255,255,0.05);
 }
 
-.js-plotly-plot:hover .modebar {
-    opacity: 1 !important;
-}
-/* Fix dropdown menu readability */
-div[data-baseweb="popover"] {
-    background-color: #0f172a !important;
+/* Hide Streamlit branding */
+#MainMenu {
+    visibility: hidden;
 }
 
-div[data-baseweb="menu"] {
-    background-color: #0f172a !important;
-    border: 1px solid rgba(56,189,248,0.35) !important;
+footer {
+    visibility: hidden;
 }
 
-div[role="listbox"] {
-    background-color: #0f172a !important;
+header {
+    visibility: hidden;
 }
 
-div[role="option"] {
-    background-color: #0f172a !important;
-    color: #f8fafc !important;
-    font-weight: 700 !important;
-}
+</style>
+""", unsafe_allow_html=True)
 
-div[role="option"] * {
-    color: #f8fafc !important;
-    opacity: 1 !important;
-}
-
-div[role="option"]:hover {
-    background-color: #1e293b !important;
-}
-
-div[role="option"]:hover * {
-    color: #38bdf8 !important;
-}
-/* Force metric labels to peach-pink */
-div[data-testid="metric-container"] label,
-div[data-testid="metric-container"] p,
-div[data-testid="metric-container"] span,
-div[data-testid="stMetricLabel"],
-div[data-testid="stMetricLabel"] *,
-[data-testid="stMetricLabel"] {
-    color: #f9a8d4 !important;
-    opacity: 1 !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-}
-
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 st.set_page_config(
     page_title='AI Insurance Intelligence Platform',
-    page_icon='⚠️',
-    layout='wide'
+    layout='wide',
+    initial_sidebar_state="expanded"
 )
-
-st.sidebar.title('⚠️ AI Insurance Platform')
 
 st.sidebar.markdown(
     '''
@@ -296,8 +190,6 @@ page = st.sidebar.radio(
         'Upload Data for Comparison'
     ]
 )
-
-API_URL = 'http://localhost:5000'
 
 if page == 'Dashboard Home':
 
@@ -475,6 +367,7 @@ if page == 'Dashboard Home':
 elif page == 'Monte Carlo Simulation':
 
     st.title('Monte Carlo Simulation')
+    st.caption('All monetary values are shown in Pakistani Rupees (PKR).')
 
     try:
 
@@ -514,15 +407,14 @@ elif page == 'Monte Carlo Simulation':
         st.markdown(
             """
             <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
+                background: #111116;
+                border: 1px solid rgba(236,72,153,0.25);
+                border-radius: 14px;
+                padding: 18px 22px;
                 margin-bottom: 20px;
-                color: #f5d0fe;
+                color: #d1d5db;
                 font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             ">
                 Monte Carlo simulation generated directly from synthetic claims data.
             </div>
@@ -592,15 +484,14 @@ elif page == 'Fraud Detection':
         st.markdown(
             """
             <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
+                background: #111116;
+                border: 1px solid rgba(236,72,153,0.25);
+                border-radius: 14px;
+                padding: 18px 22px;
                 margin-bottom: 20px;
-                color: #f5d0fe;
+                color: #d1d5db;
                 font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             ">
                 Fraud analysis generated directly from synthetic dataset.
             </div>
@@ -608,7 +499,9 @@ elif page == 'Fraud Detection':
             unsafe_allow_html=True
         )
 
-        st.subheader('Top Fraud Records')
+        st.subheader(
+            'Top Fraud Records'
+        )
 
         display_columns = [
             col for col in [
@@ -653,20 +546,37 @@ elif page == 'Geographic Heatmap':
         st.markdown(
             """
             <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
+                background: #111116;
+                border: 1px solid rgba(236,72,153,0.25);
+                border-radius: 14px;
+                padding: 18px 22px;
                 margin-bottom: 20px;
-                color: #f5d0fe;
+                color: #d1d5db;
                 font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             ">
                 Geographic risk summary generated directly from synthetic dataset.
             </div>
             """,
             unsafe_allow_html=True
+        )
+
+        geo_df['average_claim_amount'] = geo_df[
+            'average_claim_amount'
+        ].apply(
+            lambda x: f"PKR {x:,.2f}"
+        )
+        
+        geo_df['fraud_rate'] = (
+            geo_df['fraud_rate'] * 100
+        ).apply(
+            lambda x: f"{x:.2f}%"
+        )
+        
+        geo_df['total_policies'] = geo_df[
+            'total_policies'
+        ].apply(
+            lambda x: f"{x:,}"
         )
 
         ai_table(geo_df)
@@ -727,15 +637,14 @@ elif page == 'Risk KPIs':
     st.markdown(
         """
         <div style="
-            background: rgba(217,70,239,0.10);
-            border: 1px solid rgba(217,70,239,0.30);
-            backdrop-filter: blur(14px);
-            border-radius: 18px;
-            padding: 18px;
+            background: #111116;
+            border: 1px solid rgba(236,72,153,0.25);
+            border-radius: 14px;
+            padding: 18px 22px;
             margin-bottom: 20px;
-            color: #f5d0fe;
+            color: #d1d5db;
             font-weight: 600;
-            box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
         ">
             KPI metrics calculated directly from synthetic dataset.
         </div>
@@ -744,26 +653,47 @@ elif page == 'Risk KPIs':
     )
 
     try:
+
         df = pd.read_csv(
             'data/synthetic/ctgan_auto_50k.csv'
         )
 
-        total_claims = df['claim_amount'].sum()
         total_premium = df['premium'].sum()
+        total_claims = df['claim_amount'].sum()
 
         loss_ratio = total_claims / total_premium
         fraud_rate = df['fraud_flag'].mean()
-        combined_ratio = (total_claims + 1000000) / total_premium
-        risk_score = ((loss_ratio * 70) + (fraud_rate * 30)) * 100
+        combined_ratio = loss_ratio + 0.0009
+        risk_score = (
+            df['claim_amount'].mean() /
+            df['premium'].mean()
+        ) * 100
 
         col1, col2, col3, col4 = st.columns(4)
 
-        col1.metric('Loss Ratio', f"{loss_ratio:.2%}")
-        col2.metric('Fraud Rate', f"{fraud_rate:.2%}")
-        col3.metric('Risk Score', f"{risk_score:.2f}")
-        col4.metric('Combined Ratio', f"{combined_ratio:.2%}")
+        col1.metric(
+            'Loss Ratio',
+            f"{loss_ratio:.2%}"
+        )
 
-        st.subheader('Average Claim Amount by Region')
+        col2.metric(
+            'Fraud Rate',
+            f"{fraud_rate:.2%}"
+        )
+
+        col3.metric(
+            'Risk Score',
+            f"{risk_score:.2f}"
+        )
+
+        col4.metric(
+            'Combined Ratio',
+            f"{combined_ratio:.2%}"
+        )
+
+        st.subheader(
+            'Average Claim Amount by Region'
+        )
 
         summary = df.groupby(
             'region'
@@ -773,26 +703,37 @@ elif page == 'Risk KPIs':
             summary,
             x='region',
             y='claim_amount',
-            markers=True,
-            title='Average Claim Amount by Region'
+            markers=True
         )
 
         fig.update_layout(
+            title='',
             template='plotly_dark',
             paper_bgcolor='rgba(15,23,42,0.0)',
             plot_bgcolor='rgba(15,23,42,0.0)',
             font=dict(color='#e5e7eb'),
-            title_font=dict(color='#ffffff', size=22),
+            title_font=dict(
+                color='#ffffff',
+                size=22
+            ),
+            yaxis_tickprefix='PKR ',
+            yaxis_tickformat=',.0f',
             legend=dict(
                 bgcolor='rgba(0,0,0,0)',
                 font=dict(color='#e5e7eb')
             )
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
 
     except Exception as e:
-        st.error(f'Risk KPI error: {e}')
+
+        st.error(
+            f'Risk KPI error: {e}'
+        )
 elif page == 'Data Explorer':
 
     st.title('Data Explorer')
@@ -808,23 +749,22 @@ elif page == 'Data Explorer':
 
         col1, col2 = st.columns(2)
 
-        col1.metric('Rows', rows)
+        col1.metric('Rows', f'{rows:,}')
         col2.metric('Columns', columns)
 
         st.markdown(
             """
             <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
+                background: #111116;
+                border: 1px solid rgba(236,72,153,0.25);
+                border-radius: 14px;
+                padding: 18px 22px;
                 margin-bottom: 20px;
-                color: #f5d0fe;
+                color: #d1d5db;
                 font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             ">
-                Data preview loaded directly from synthetic dataset.
+                Data preview loaded directly from synthetic dataset. Monetary values are shown in PKR.
             </div>
             """,
             unsafe_allow_html=True
@@ -832,7 +772,25 @@ elif page == 'Data Explorer':
 
         st.subheader('Dataset Preview')
 
-        ai_table(df.head(20))
+        preview_df = df.head(20).copy()
+
+        if 'premium' in preview_df.columns:
+
+            preview_df['premium'] = preview_df[
+                'premium'
+            ].apply(
+                lambda x: f"PKR {x:,.2f}"
+            )
+
+        if 'claim_amount' in preview_df.columns:
+
+            preview_df['claim_amount'] = preview_df[
+                'claim_amount'
+            ].apply(
+                lambda x: f"PKR {x:,.2f}"
+            )
+
+        ai_table(preview_df)
 
     except Exception as e:
 
@@ -918,15 +876,14 @@ elif page == 'Real vs Synthetic Comparison':
         st.markdown(
             f"""
             <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
+                background: #111116;
+                border: 1px solid rgba(236,72,153,0.25);
+                border-radius: 14px;
+                padding: 18px 22px;
                 margin-bottom: 20px;
-                color: #f5d0fe;
+                color: #d1d5db;
                 font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             ">
                 Best Performing Synthetic Model: {best_model}
             </div>
@@ -1115,15 +1072,14 @@ elif page == 'Upload Data for Comparison':
             st.markdown(
                 """
                 <div style="
-                    background: rgba(217,70,239,0.10);
-                    border: 1px solid rgba(217,70,239,0.30);
-                    backdrop-filter: blur(14px);
-                    border-radius: 18px;
-                    padding: 18px;
+                    background: #111116;
+                    border: 1px solid rgba(236,72,153,0.25);
+                    border-radius: 14px;
+                    padding: 18px 22px;
                     margin-bottom: 20px;
-                    color: #f5d0fe;
+                    color: #d1d5db;
                     font-weight: 600;
-                    box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
                 ">
                     Uploaded dataset loaded successfully.
                 </div>
