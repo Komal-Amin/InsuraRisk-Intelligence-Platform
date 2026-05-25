@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 import plotly.express as px
 import pandas as pd
-import numpy as np
 from scipy.stats import ks_2samp, wasserstein_distance
 
 def ai_table(df):
@@ -301,94 +300,39 @@ API_URL = 'http://localhost:5000'
 
 if page == 'Dashboard Home':
 
-    st.title('InsuraRisk Intelligence Platform')
+    st.title('AI-Powered Insurance Risk Intelligence Platform')
 
     st.markdown(
         '### Synthetic Data Generation • Fraud Analytics • Statistical Validation • Risk Monitoring'
     )
 
     try:
-        df = pd.read_csv(
-            'data/synthetic/ctgan_auto_50k.csv'
+        metrics_response = requests.get(
+            f'{API_URL}/api/metrics?dataset=ctgan_auto_50k'
         )
 
-        real = pd.read_csv(
-            'data/synthetic/baseline_auto.csv'
+        metrics_data = metrics_response.json()
+
+        comparison_response = requests.get(
+            'http://localhost:5000/api/comparison'
         )
 
-        ctgan = pd.read_csv(
-            'data/synthetic/ctgan_auto_50k.csv'
-        )
-
-        tvae = pd.read_csv(
-            'data/synthetic/tvae_auto_50k.csv'
-        )
-
-        total_claims = df['claim_amount'].sum()
-        total_premium = df['premium'].sum()
-
-        loss_ratio = total_claims / total_premium
-        fraud_rate = df['fraud_flag'].mean()
-        total_policies = len(df)
-
-        ctgan_avg_wasserstein = (
-            wasserstein_distance(
-                real['premium'],
-                ctgan['premium']
-            )
-            +
-            wasserstein_distance(
-                real['claim_amount'],
-                ctgan['claim_amount']
-            )
-        ) / 2
-
-        tvae_avg_wasserstein = (
-            wasserstein_distance(
-                real['premium'],
-                tvae['premium']
-            )
-            +
-            wasserstein_distance(
-                real['claim_amount'],
-                tvae['claim_amount']
-            )
-        ) / 2
-
-        best_model = (
-            'CTGAN'
-            if ctgan_avg_wasserstein < tvae_avg_wasserstein
-            else 'TVAE'
-        )
+        comparison_data = comparison_response.json()
+        summary = comparison_data['summary']
 
         col1, col2, col3, col4 = st.columns(4)
 
-        col1.metric(
-            '📄 Total Policies',
-            f'{total_policies:,}'
-        )
-
-        col2.metric(
-            '📉 Loss Ratio',
-            f'{loss_ratio:.2%}'
-        )
-
-        col3.metric(
-            '🛡 Fraud Rate',
-            f'{fraud_rate:.2%}'
-        )
-
-        col4.metric(
-            '🧠 Best Model',
-            best_model
-        )
+        col1.metric('📄 Total Policies', f"{metrics_data['total_policies']:,}")
+        col2.metric('📉 Loss Ratio', f"{metrics_data['loss_ratio']:.2%}")
+        col3.metric('🛡 Fraud Rate', f"{metrics_data['fraud_rate']:.2%}")
+        col4.metric('🧠 Best Model', summary['best_model'])
 
         st.subheader('System Status')
 
         s1, s2, s3, s4 = st.columns(4)
 
         status_cards = [
-            ('✅ Streamlit App Active', s1),
+            ('✅ Flask API Active', s1),
             ('🛡 Fraud Detection Active', s2),
             ('📂 Upload Validation Enabled', s3),
             ('⚡ Synthetic Comparison Ready', s4)
@@ -460,214 +404,136 @@ if page == 'Dashboard Home':
 
         col5.metric(
             'CTGAN Avg Wasserstein',
-            f'{ctgan_avg_wasserstein:.2f}'
+            f"{summary['ctgan_avg_wasserstein']:.2f}"
         )
 
         col6.metric(
             'TVAE Avg Wasserstein',
-            f'{tvae_avg_wasserstein:.2f}'
+            f"{summary['tvae_avg_wasserstein']:.2f}"
         )
 
     except Exception as e:
-        st.error(
-            f'Dashboard Home error: {e}'
-        )
+        st.error(f'Dashboard Home error: {e}')
 elif page == 'Monte Carlo Simulation':
 
     st.title('Monte Carlo Simulation')
 
     try:
 
-        df = pd.read_csv(
-            'data/synthetic/ctgan_auto_50k.csv'
+        response = requests.get(
+            'http://localhost:5000/api/simulation/monte-carlo'
         )
 
-        simulated_losses = np.random.normal(
-            loc=df['claim_amount'].mean(),
-            scale=df['claim_amount'].std(),
-            size=10000
-        )
+        simulation_data = response.json()
 
-        simulated_losses = np.abs(simulated_losses)
-
-        mean_loss = simulated_losses.mean()
-        p95_loss = np.percentile(simulated_losses, 95)
-        p99_loss = np.percentile(simulated_losses, 99)
-
-        col1, col2, col3 = st.columns(3)
-
-        col1.metric(
+        st.metric(
             'Mean Loss',
-            f"{mean_loss:,.2f}"
+            f"{simulation_data['mean']:,.2f}"
         )
 
-        col2.metric(
+        st.metric(
             'P95 Loss',
-            f"{p95_loss:,.2f}"
+            f"{simulation_data['p95']:,.2f}"
         )
 
-        col3.metric(
+        st.metric(
             'P99 CAT Loss',
-            f"{p99_loss:,.2f}"
+            f"{simulation_data['p99']:,.2f}"
         )
 
         st.markdown(
-            """
-            <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
-                margin-bottom: 20px;
-                color: #f5d0fe;
-                font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-            ">
-                Monte Carlo simulation generated directly from synthetic claims data.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-        fig = px.histogram(
-            simulated_losses,
-            nbins=50,
-            title='Monte Carlo Loss Distribution'
-        )
-
-        fig.update_layout(
-            template='plotly_dark',
-            paper_bgcolor='rgba(15,23,42,0)',
-            plot_bgcolor='rgba(15,23,42,0)',
-            font=dict(color='#e5e7eb'),
-            title_font=dict(color='#ffffff', size=22)
-        )
-
-        st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Fraud results loaded from Flask API
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     except Exception as e:
-
-        st.error(
-            f'Monte Carlo error: {e}'
-        )
+        st.error(f'Monte Carlo error: {e}')
 elif page == 'Fraud Detection':
 
     st.title('Fraud Detection Dashboard')
 
     try:
-
-        df = pd.read_csv(
-            'data/synthetic/ctgan_auto_50k.csv'
-        )
-
-        fraud_df = df[
-            df['fraud_flag'] == 1
-        ].copy()
-
-        fraud_cases = len(fraud_df)
-        total_records = len(df)
-        fraud_rate = fraud_cases / total_records
+        response = requests.get('http://localhost:5000/api/fraud')
+        fraud_data = response.json()
 
         col1, col2, col3 = st.columns(3)
 
-        col1.metric(
-            'Fraud Cases',
-            fraud_cases
-        )
-
-        col2.metric(
-            'Total Records',
-            total_records
-        )
-
-        col3.metric(
-            'Fraud Rate',
-            f"{fraud_rate:.2%}"
-        )
+        col1.metric('Fraud Cases', fraud_data['fraud_cases'])
+        col2.metric('Total Records', fraud_data['total_records'])
+        col3.metric('Fraud Rate', f"{fraud_data['fraud_rate']:.2%}")
 
         st.markdown(
-            """
-            <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
-                margin-bottom: 20px;
-                color: #f5d0fe;
-                font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-            ">
-                Fraud analysis generated directly from synthetic dataset.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Fraud results loaded from Flask API
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+        fraud_df = pd.DataFrame(fraud_data['top_fraud_records'])
 
         st.subheader('Top Fraud Records')
-
-        display_columns = [
-            col for col in [
-                'policy_id',
-                'premium',
-                'claim_amount',
-                'region',
-                'customer_age'
-            ]
-            if col in fraud_df.columns
-        ]
-
-        ai_table(
-            fraud_df[
-                display_columns
-            ].head(20)
-        )
+        ai_table(fraud_df)
 
     except Exception as e:
-
-        st.error(
-            f'Fraud dashboard error: {e}'
-        )
+        st.error(f'Fraud dashboard error: {e}')
 elif page == 'Geographic Heatmap':
 
     st.title('Geographic Risk Heatmap')
 
     try:
 
-        df = pd.read_csv(
-            'data/synthetic/ctgan_auto_50k.csv'
+        response = requests.get(
+            'http://localhost:5000/api/geographic'
         )
 
-        geo_df = df.groupby(
-            'region'
-        ).agg(
-            average_claim_amount=('claim_amount', 'mean'),
-            fraud_rate=('fraud_flag', 'mean'),
-            total_policies=('policy_id', 'count')
-        ).reset_index()
+        geo_data = response.json()
+
+        geo_df = pd.DataFrame(geo_data)
 
         st.markdown(
-            """
-            <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
-                margin-bottom: 20px;
-                color: #f5d0fe;
-                font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-            ">
-                Geographic risk summary generated directly from synthetic dataset.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Fraud results loaded from Flask API
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
         ai_table(geo_df)
 
@@ -677,7 +543,6 @@ elif page == 'Geographic Heatmap':
             y='average_claim_amount',
             title='Average Claim Amount by Region'
         )
-
         fig.update_layout(
             template='plotly_dark',
             paper_bgcolor='rgba(15,23,42,0.0)',
@@ -701,7 +566,6 @@ elif page == 'Geographic Heatmap':
             y='fraud_rate',
             title='Fraud Rate by Region'
         )
-
         fig2.update_layout(
             template='plotly_dark',
             paper_bgcolor='rgba(15,23,42,0.0)',
@@ -716,54 +580,56 @@ elif page == 'Geographic Heatmap':
         )
 
     except Exception as e:
-
         st.error(
             f'Geographic dashboard error: {e}'
         )
 elif page == 'Risk KPIs':
 
     st.title('Risk KPI Analysis')
-
     st.markdown(
-        """
-        <div style="
-            background: rgba(217,70,239,0.10);
-            border: 1px solid rgba(217,70,239,0.30);
-            backdrop-filter: blur(14px);
-            border-radius: 18px;
-            padding: 18px;
-            margin-bottom: 20px;
-            color: #f5d0fe;
-            font-weight: 600;
-            box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-        ">
-            KPI metrics calculated directly from synthetic dataset.
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Using Flask API endpoint: /api/kpis
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     try:
+        response = requests.get(
+            'http://localhost:5000/api/kpis'
+        )
+
+        kpi_data = response.json()
+
         df = pd.read_csv(
             'data/synthetic/ctgan_auto_50k.csv'
         )
 
-        total_claims = df['claim_amount'].sum()
-        total_premium = df['premium'].sum()
+        loss_ratio = kpi_data['loss_ratio']
+        combined_ratio = kpi_data['combined_ratio']
+        fraud_rate = kpi_data['fraud_rate']
+        risk_score = kpi_data['risk_score']
 
-        loss_ratio = total_claims / total_premium
-        fraud_rate = df['fraud_flag'].mean()
-        combined_ratio = (total_claims + 1000000) / total_premium
-        risk_score = ((loss_ratio * 70) + (fraud_rate * 30)) * 100
-
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3 = st.columns(3)
 
         col1.metric('Loss Ratio', f"{loss_ratio:.2%}")
         col2.metric('Fraud Rate', f"{fraud_rate:.2%}")
-        col3.metric('Risk Score', f"{risk_score:.2f}")
-        col4.metric('Combined Ratio', f"{combined_ratio:.2%}")
+        col3.metric('Risk Score', risk_score)
 
-        st.subheader('Average Claim Amount by Region')
+        st.metric('Combined Ratio', f"{combined_ratio:.2%}")
+
+        st.subheader('Claims by Insurance Type')
 
         summary = df.groupby(
             'region'
@@ -774,9 +640,8 @@ elif page == 'Risk KPIs':
             x='region',
             y='claim_amount',
             markers=True,
-            title='Average Claim Amount by Region'
+            title='Average Claim Amount by Insurance Type'
         )
-
         fig.update_layout(
             template='plotly_dark',
             paper_bgcolor='rgba(15,23,42,0.0)',
@@ -799,17 +664,62 @@ elif page == 'Data Explorer':
 
     try:
 
-        df = pd.read_csv(
-            'data/synthetic/ctgan_auto_50k.csv'
+        response = requests.get(
+            'http://localhost:5000/api/data-preview'
         )
 
-        rows = len(df)
-        columns = len(df.columns)
+        data = response.json()
 
         col1, col2 = st.columns(2)
 
-        col1.metric('Rows', rows)
-        col2.metric('Columns', columns)
+        col1.metric('Rows', data['rows'])
+        col2.metric('Columns', data['columns'])
+
+        st.markdown(
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Data preview loaded from Flask API
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+        st.subheader('Dataset Preview')
+
+        preview_df = pd.DataFrame(data['preview'])
+
+        ai_table(preview_df.head(20))
+
+    except Exception as e:
+        st.error(
+            f'Data Explorer error: {e}'
+        )
+elif page == 'Real vs Synthetic Comparison':
+
+    st.title('Real vs Synthetic Data Comparison')
+
+    try:
+        response = requests.get(
+            'http://localhost:5000/api/comparison'
+        )
+
+        comparison_data = response.json()
+
+        comparison_df = pd.DataFrame(
+            comparison_data['results']
+        )
+
+        summary = comparison_data['summary']
 
         st.markdown(
             """
@@ -824,111 +734,7 @@ elif page == 'Data Explorer':
                 font-weight: 600;
                 box-shadow: 0 8px 25px rgba(217,70,239,0.08);
             ">
-                Data preview loaded directly from synthetic dataset.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-        st.subheader('Dataset Preview')
-
-        ai_table(df.head(20))
-
-    except Exception as e:
-
-        st.error(
-            f'Data Explorer error: {e}'
-        )
-elif page == 'Real vs Synthetic Comparison':
-
-    st.title('Real vs Synthetic Data Comparison')
-
-    try:
-
-        real_df = pd.read_csv(
-            'data/synthetic/baseline_auto.csv'
-        )
-
-        ctgan_df = pd.read_csv(
-            'data/synthetic/ctgan_auto_50k.csv'
-        )
-
-        tvae_df = pd.read_csv(
-            'data/synthetic/tvae_auto_50k.csv'
-        )
-
-        comparison_results = []
-
-        numeric_columns = [
-            'premium',
-            'claim_amount'
-        ]
-
-        for column in numeric_columns:
-
-            ctgan_ks = ks_2samp(
-                real_df[column],
-                ctgan_df[column]
-            )
-
-            tvae_ks = ks_2samp(
-                real_df[column],
-                tvae_df[column]
-            )
-
-            ctgan_wasserstein = wasserstein_distance(
-                real_df[column],
-                ctgan_df[column]
-            )
-
-            tvae_wasserstein = wasserstein_distance(
-                real_df[column],
-                tvae_df[column]
-            )
-
-            comparison_results.append({
-                'column': column,
-                'ctgan_ks_pvalue': ctgan_ks.pvalue,
-                'ctgan_mean': ctgan_df[column].mean(),
-                'ctgan_wasserstein': ctgan_wasserstein,
-                'real_mean': real_df[column].mean(),
-                'tvae_ks_pvalue': tvae_ks.pvalue,
-                'tvae_mean': tvae_df[column].mean(),
-                'tvae_wasserstein': tvae_wasserstein
-            })
-
-        comparison_df = pd.DataFrame(
-            comparison_results
-        )
-
-        ctgan_avg_wasserstein = comparison_df[
-            'ctgan_wasserstein'
-        ].mean()
-
-        tvae_avg_wasserstein = comparison_df[
-            'tvae_wasserstein'
-        ].mean()
-
-        best_model = (
-            'CTGAN'
-            if ctgan_avg_wasserstein < tvae_avg_wasserstein
-            else 'TVAE'
-        )
-
-        st.markdown(
-            f"""
-            <div style="
-                background: rgba(217,70,239,0.10);
-                border: 1px solid rgba(217,70,239,0.30);
-                backdrop-filter: blur(14px);
-                border-radius: 18px;
-                padding: 18px;
-                margin-bottom: 20px;
-                color: #f5d0fe;
-                font-weight: 600;
-                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-            ">
-                Best Performing Synthetic Model: {best_model}
+                Comparison data loaded from Flask API
             </div>
             """,
             unsafe_allow_html=True
@@ -938,39 +744,17 @@ elif page == 'Real vs Synthetic Comparison':
 
         formatted_comparison_df = comparison_df.copy()
 
-        formatted_comparison_df['ctgan_ks_pvalue'] = formatted_comparison_df[
-            'ctgan_ks_pvalue'
-        ].map('{:.4e}'.format)
-
-        formatted_comparison_df['tvae_ks_pvalue'] = formatted_comparison_df[
-            'tvae_ks_pvalue'
-        ].map('{:.4e}'.format)
-
-        formatted_comparison_df['ctgan_wasserstein'] = formatted_comparison_df[
-            'ctgan_wasserstein'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['tvae_wasserstein'] = formatted_comparison_df[
-            'tvae_wasserstein'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['real_mean'] = formatted_comparison_df[
-            'real_mean'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['ctgan_mean'] = formatted_comparison_df[
-            'ctgan_mean'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['tvae_mean'] = formatted_comparison_df[
-            'tvae_mean'
-        ].map('{:.2f}'.format)
+        formatted_comparison_df['ctgan_ks_pvalue'] = formatted_comparison_df['ctgan_ks_pvalue'].map('{:.4e}'.format)
+        formatted_comparison_df['tvae_ks_pvalue'] = formatted_comparison_df['tvae_ks_pvalue'].map('{:.4e}'.format)
+        formatted_comparison_df['ctgan_wasserstein'] = formatted_comparison_df['ctgan_wasserstein'].map('{:.2f}'.format)
+        formatted_comparison_df['tvae_wasserstein'] = formatted_comparison_df['tvae_wasserstein'].map('{:.2f}'.format)
+        formatted_comparison_df['real_mean'] = formatted_comparison_df['real_mean'].map('{:.2f}'.format)
+        formatted_comparison_df['ctgan_mean'] = formatted_comparison_df['ctgan_mean'].map('{:.2f}'.format)
+        formatted_comparison_df['tvae_mean'] = formatted_comparison_df['tvae_mean'].map('{:.2f}'.format)
 
         ai_table(formatted_comparison_df)
 
-        csv = comparison_df.to_csv(
-            index=False
-        ).encode('utf-8')
+        csv = comparison_df.to_csv(index=False).encode('utf-8')
 
         st.download_button(
             label='Download Comparison Results CSV',
@@ -1058,16 +842,35 @@ elif page == 'Real vs Synthetic Comparison':
             use_container_width=True
         )
 
+        st.markdown(
+            f"""
+            <div style="
+                background: rgba(217,70,239,0.10);
+                border: 1px solid rgba(217,70,239,0.30);
+                backdrop-filter: blur(14px);
+                border-radius: 18px;
+                padding: 18px;
+                margin-bottom: 20px;
+                color: #f5d0fe;
+                font-weight: 600;
+                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+            ">
+                Best Performing Synthetic Model: {summary['best_model']}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
         col1, col2 = st.columns(2)
 
         col1.metric(
             'CTGAN Avg Wasserstein',
-            f"{ctgan_avg_wasserstein:.2f}"
+            f"{summary['ctgan_avg_wasserstein']:.2f}"
         )
 
         col2.metric(
             'TVAE Avg Wasserstein',
-            f"{tvae_avg_wasserstein:.2f}"
+            f"{summary['tvae_avg_wasserstein']:.2f}"
         )
 
         st.info(
@@ -1075,7 +878,6 @@ elif page == 'Real vs Synthetic Comparison':
         )
 
     except Exception as e:
-
         st.error(
             f'Comparison dashboard error: {e}'
         )
@@ -1092,50 +894,44 @@ elif page == 'Upload Data for Comparison':
 
         try:
 
-            uploaded_df = pd.read_csv(
-                uploaded_file
-            )
-
+            uploaded_df = pd.read_csv(uploaded_file)
             MAX_ROWS = 100000
 
             if len(uploaded_df) > MAX_ROWS:
-
+    
                 st.warning(
                     f'Uploaded file has {len(uploaded_df):,} rows. Using first {MAX_ROWS:,} rows for faster analysis.'
                 )
 
-                uploaded_df = uploaded_df.head(
-                    MAX_ROWS
-                )
-
+                uploaded_df = uploaded_df.head(MAX_ROWS)
             synthetic_df = pd.read_csv(
                 'data/synthetic/ctgan_auto_50k.csv'
             )
 
             st.markdown(
-                """
-                <div style="
-                    background: rgba(217,70,239,0.10);
-                    border: 1px solid rgba(217,70,239,0.30);
-                    backdrop-filter: blur(14px);
-                    border-radius: 18px;
-                    padding: 18px;
-                    margin-bottom: 20px;
-                    color: #f5d0fe;
-                    font-weight: 600;
-                    box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-                ">
-                    Uploaded dataset loaded successfully.
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Fraud results loaded from Flask API
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
             st.subheader(
                 'Uploaded Data Preview'
             )
 
-            ai_table(
+            st.dataframe(
                 uploaded_df.head(20)
             )
 
@@ -1195,7 +991,8 @@ elif page == 'Upload Data for Comparison':
                 )
 
                 ai_table(
-                    comparison
+                    comparison,
+                    'Uploaded vs Synthetic Comparison'
                 )
 
                 fig = px.bar(
@@ -1208,7 +1005,6 @@ elif page == 'Upload Data for Comparison':
                     barmode='group',
                     title='Uploaded vs Synthetic Data'
                 )
-
                 fig.update_layout(
                     template='plotly_dark',
                     paper_bgcolor='rgba(15,23,42,0.0)',
@@ -1244,7 +1040,6 @@ elif page == 'Upload Data for Comparison':
                     )
 
                     stat_results.append({
-
                         'Column': col,
                         'KS-Test P-Value': ks_result.pvalue,
                         'Wasserstein Distance': wasserstein
@@ -1273,14 +1068,29 @@ elif page == 'Upload Data for Comparison':
 
                 if avg_distance < 3000:
 
-                    st.success(
-                        'Uploaded data is reasonably similar to the synthetic dataset.'
-                    )
+                    st.markdown(
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Fraud results loaded from Flask API
+    </div>
+    """,
+    unsafe_allow_html=True
+)    
 
                 else:
 
                     st.warning(
-                        'Uploaded data shows noticeable differences from the synthetic dataset.'
+                        'Verdict: Uploaded data shows noticeable differences from the synthetic dataset.'
                     )
 
                 csv_results = stat_df.to_csv(
@@ -1313,7 +1123,6 @@ elif page == 'Upload Data for Comparison':
                     values='count',
                     title='Uploaded Dataset Region Distribution'
                 )
-
                 fig2.update_layout(
                     template='plotly_dark',
                     paper_bgcolor='rgba(15,23,42,0.0)',
@@ -1321,7 +1130,7 @@ elif page == 'Upload Data for Comparison':
                     font=dict(color='#e5e7eb'),
                     title_font=dict(color='#ffffff', size=22)
                 )
-
+            
                 st.plotly_chart(
                     fig2,
                     use_container_width=True
@@ -1330,7 +1139,7 @@ elif page == 'Upload Data for Comparison':
                 st.subheader(
                     'Insurance Type Distribution'
                 )
-
+                
                 uploaded_insurance = uploaded_df[
                     'insurance_type'
                 ].value_counts().reset_index()
@@ -1339,38 +1148,55 @@ elif page == 'Upload Data for Comparison':
                     'insurance_type',
                     'count'
                 ]
-
-                if len(uploaded_insurance) > 1:
-
-                    fig3 = px.bar(
-                        uploaded_insurance,
-                        x='insurance_type',
-                        y='count',
-                        title='Insurance Type Distribution'
+            if len(uploaded_insurance) > 1:
+                
+                fig3 = px.bar(
+                     uploaded_insurance,
+                     x='insurance_type',
+                     y='count',
+                     title='Insurance Type Distribution'
+                )
+                fig.update_layout(
+                    template='plotly_dark',
+                    paper_bgcolor='rgba(15,23,42,0)',
+                    plot_bgcolor='rgba(15,23,42,0)',
+                    font=dict(color='#e5e7eb'),
+                    title_font=dict(color='#ffffff', size=22),
+                    legend=dict(
+                        bgcolor='rgba(0,0,0,0)',
+                        font=dict(color='#e5e7eb')
                     )
+                )
 
-                    fig3.update_layout(
-                        template='plotly_dark',
-                        paper_bgcolor='rgba(15,23,42,0)',
-                        plot_bgcolor='rgba(15,23,42,0)',
-                        font=dict(color='#e5e7eb'),
-                        title_font=dict(color='#ffffff', size=22),
-                        legend=dict(
-                            bgcolor='rgba(0,0,0,0)',
-                            font=dict(color='#e5e7eb')
-                        )
-                    )
-
-                    st.plotly_chart(
-                        fig3,
-                        use_container_width=True
-                    )
-
-                else:
-
-                    st.info(
-                        f"Only one insurance type found: {uploaded_insurance['insurance_type'].iloc[0]}"
-                    )
+                st.plotly_chart(
+                    fig3,
+                    use_container_width=True
+                )
+                
+            else:
+            
+                st.info(
+                    f"Only one insurance type found: {uploaded_insurance['insurance_type'].iloc[0]}. Chart skipped because there is no category comparison."
+                )
+                                
+                st.markdown(
+    """
+    <div style="
+        background: rgba(217,70,239,0.10);
+        border: 1px solid rgba(217,70,239,0.30);
+        backdrop-filter: blur(14px);
+        border-radius: 18px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: #f5d0fe;
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+    ">
+        Fraud results loaded from Flask API
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
         except Exception as e:
 

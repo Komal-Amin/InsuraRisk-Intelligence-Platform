@@ -1,0 +1,41 @@
+commit fba5ff96a76666d5afd2c9790376bcef44226479
+Author: Komal-Amin <komalamin09@gmail.com>
+Date:   Mon May 25 21:29:01 2026 +0500
+
+    Adjust synthetic loss ratio and fraud rate
+
+commit 842942f1ab1eb27a376a6ff9170ba08578b0ca80
+Author: Komal-Amin <komalamin09@gmail.com>
+Date:   Mon May 25 20:19:10 2026 +0500
+
+    Clean requirements for Render deployment
+
+commit 8c42805e56f1f324c8ad54109956fe2fb14204c5
+Author: Komal-Amin <komalamin09@gmail.com>
+Date:   Mon May 25 19:48:51 2026 +0500
+
+    Add Render startup script
+
+commit ab10bbcb55310cf51858e954d745ab8434941e8b
+Author: Komal-Amin <komalamin09@gmail.com>
+Date:   Mon May 25 19:46:02 2026 +0500
+
+    Add requirements for deployment
+
+commit 8d0c90b6fc3926736e4cbe0e48c27324934d2c27
+Author: Komal-Amin <komalamin09@gmail.com>
+Date:   Mon May 25 19:44:19 2026 +0500
+
+    Fix dashboard before deployment
+
+commit bed957da003254fad5ffc70ea0396bc013d4d926
+Author: Komal-Amin <komalamin09@gmail.com>
+Date:   Mon May 25 18:26:57 2026 +0500
+
+    Save latest dashboard UI changes
+
+commit 1f77e2ad69c6637923f0034dcab4f8280ff09d13
+Author: Komal-Amin <komalamin09@gmail.com>
+Date:   Mon May 25 17:54:02 2026 +0500
+
+    Final dashboard before deployment

@@ -1,0 +1,7 @@
+cd "C:\Users\komal\Desktop\InsuraRisk Intelligence Platform"
+notepad start.sh
+notepad requirements.txt
+git status > streamlit_conversion_log.txt
+git log > streamlit_conversion_log.txt
+mkdir logs_backup
+doskey /history > logs_backup\streamlit_conversion_history.txt
