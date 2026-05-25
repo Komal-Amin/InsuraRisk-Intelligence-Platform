@@ -307,38 +307,19 @@ if page == 'Dashboard Home':
 )     
     try:
 
-        df = pd.read_csv('data/synthetic/ctgan_auto_50k.csv')
-        
-        total_claims = df['claim_amount'].sum()
-        total_premium = df['premium'].sum()
+        metrics_response = requests.get(
+            f'{API_URL}/api/metrics?dataset=ctgan_auto_50k'
+        )
 
-        metrics_data = {
-            'total_policies': len(df),
-            'loss_ratio': total_claims / total_premium,
-            'fraud_rate': df['fraud_flag'].mean()
-        }
+        metrics_data = metrics_response.json()
 
-        real = pd.read_csv('data/synthetic/baseline_auto.csv')
-ctgan = pd.read_csv('data/synthetic/ctgan_auto_50k.csv')
-tvae = pd.read_csv('data/synthetic/tvae_auto_50k.csv')
+        comparison_response = requests.get(
+            'http://localhost:5000/api/comparison'
+        )
 
-from scipy.stats import wasserstein_distance
+        comparison_data = comparison_response.json()
 
-ctgan_avg = (
-    wasserstein_distance(real['premium'], ctgan['premium']) +
-    wasserstein_distance(real['claim_amount'], ctgan['claim_amount'])
-) / 2
-
-tvae_avg = (
-    wasserstein_distance(real['premium'], tvae['premium']) +
-    wasserstein_distance(real['claim_amount'], tvae['claim_amount'])
-) / 2
-
-summary = {
-    'best_model': 'CTGAN' if ctgan_avg < tvae_avg else 'TVAE',
-    'ctgan_avg_wasserstein': ctgan_avg,
-    'tvae_avg_wasserstein': tvae_avg
-}
+        summary = comparison_data['summary']
 
         col1, col2, col3, col4 = st.columns(4)
 
