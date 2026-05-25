@@ -299,146 +299,68 @@ page = st.sidebar.radio(
 API_URL = 'http://localhost:5000'
 
 if page == 'Dashboard Home':
-    
+
     st.title('AI-Powered Insurance Risk Intelligence Platform')
-    
+
     st.markdown(
-    '### Synthetic Data Generation • Fraud Analytics • Statistical Validation • Risk Monitoring'
-)     
+        '### Synthetic Data Generation • Fraud Analytics • Statistical Validation • Risk Monitoring'
+    )
+
     try:
+        metrics_response = requests.get(
+            f'{API_URL}/api/metrics?dataset=ctgan_auto_50k'
+        )
 
-        df = pd.read_csv('data/synthetic/ctgan_auto_50k.csv')
-        
-        total_claims = df['claim_amount'].sum()
-        total_premium = df['premium'].sum()
+        metrics_data = metrics_response.json()
 
-        metrics_data = {
-            'total_policies': len(df),
-            'loss_ratio': total_claims / total_premium,
-            'fraud_rate': df['fraud_flag'].mean()
-        }
+        comparison_response = requests.get(
+            'http://localhost:5000/api/comparison'
+        )
 
-        real = pd.read_csv('data/synthetic/baseline_auto.csv')
-ctgan = pd.read_csv('data/synthetic/ctgan_auto_50k.csv')
-tvae = pd.read_csv('data/synthetic/tvae_auto_50k.csv')
-
-from scipy.stats import wasserstein_distance
-
-ctgan_avg = (
-    wasserstein_distance(real['premium'], ctgan['premium']) +
-    wasserstein_distance(real['claim_amount'], ctgan['claim_amount'])
-) / 2
-
-tvae_avg = (
-    wasserstein_distance(real['premium'], tvae['premium']) +
-    wasserstein_distance(real['claim_amount'], tvae['claim_amount'])
-) / 2
-
-summary = {
-    'best_model': 'CTGAN' if ctgan_avg < tvae_avg else 'TVAE',
-    'ctgan_avg_wasserstein': ctgan_avg,
-    'tvae_avg_wasserstein': tvae_avg
-}
+        comparison_data = comparison_response.json()
+        summary = comparison_data['summary']
 
         col1, col2, col3, col4 = st.columns(4)
 
-        col1.metric(
-            '📄 Total Policies',
-            f"{metrics_data['total_policies']:,}"
-        )
-
-        col2.metric(
-            '📉 Loss Ratio',
-            f"{metrics_data['loss_ratio']:.2%}"
-        )
-
-        col3.metric(
-            '🛡 Fraud Rate',
-            f"{metrics_data['fraud_rate']:.2%}"
-        )
-
-        col4.metric(
-            '🧠 Best Model',
-            summary['best_model']
-        )
+        col1.metric('📄 Total Policies', f"{metrics_data['total_policies']:,}")
+        col2.metric('📉 Loss Ratio', f"{metrics_data['loss_ratio']:.2%}")
+        col3.metric('🛡 Fraud Rate', f"{metrics_data['fraud_rate']:.2%}")
+        col4.metric('🧠 Best Model', summary['best_model'])
 
         st.subheader('System Status')
-        
+
         s1, s2, s3, s4 = st.columns(4)
 
-        s1.markdown(
-            """
-            <div style="
-                background: rgba(217,70,239,0.12);
-                backdrop-filter: blur(14px);
-                border: 1px solid rgba(217,70,239,0.35);
-                padding: 14px;
-                border-radius: 14px;
-                text-align:center;
-                font-weight:700;
-            ">
-            ✅ Flask API Active
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        status_cards = [
+            ('✅ Flask API Active', s1),
+            ('🛡 Fraud Detection Active', s2),
+            ('📂 Upload Validation Enabled', s3),
+            ('⚡ Synthetic Comparison Ready', s4)
+        ]
 
-        s2.markdown(
-            """
-            <div style="
-                background: rgba(217,70,239,0.12);
-                backdrop-filter: blur(14px);
-                border: 1px solid rgba(217,70,239,0.35);
-                padding: 14px;
-                border-radius: 14px;
-                text-align:center;
-                font-weight:700;
-            ">
-            🛡 Fraud Detection Active
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        for text, col in status_cards:
+            col.markdown(
+                f"""
+                <div style="
+                    background: rgba(217,70,239,0.12);
+                    backdrop-filter: blur(14px);
+                    border: 1px solid rgba(217,70,239,0.35);
+                    padding: 14px;
+                    border-radius: 14px;
+                    text-align:center;
+                    font-weight:700;
+                ">
+                {text}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
-        s3.markdown(
-            """
-            <div style="
-                background: rgba(217,70,239,0.12);
-                backdrop-filter: blur(14px);
-                border: 1px solid rgba(217,70,239,0.35);
-                padding: 14px;
-                border-radius: 14px;
-                text-align:center;
-                font-weight:700;
-            ">
-            📂 Upload Validation Enabled
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-        s4.markdown(
-            """
-            <div style="
-                background: rgba(217,70,239,0.12);
-                backdrop-filter: blur(14px);
-                border: 1px solid rgba(217,70,239,0.35);
-                padding: 14px;
-                border-radius: 14px;
-                text-align:center;
-                font-weight:700;
-            ">
-            ⚡ Synthetic Comparison Ready
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
         st.subheader('Platform Capabilities')
 
         c1, c2 = st.columns(2)
 
         with c1:
-
             st.markdown(
                 """
                 <div style="
@@ -458,7 +380,6 @@ summary = {
             )
 
         with c2:
-
             st.markdown(
                 """
                 <div style="
@@ -492,10 +413,7 @@ summary = {
         )
 
     except Exception as e:
-
-        st.error(
-            f'Dashboard Home error: {e}'
-        )
+        st.error(f'Dashboard Home error: {e}')
 elif page == 'Monte Carlo Simulation':
 
     st.title('Monte Carlo Simulation')
@@ -804,55 +722,35 @@ elif page == 'Real vs Synthetic Comparison':
         summary = comparison_data['summary']
 
         st.markdown(
-    """
-    <div style="
-        background: rgba(217,70,239,0.10);
-        border: 1px solid rgba(217,70,239,0.30);
-        backdrop-filter: blur(14px);
-        border-radius: 18px;
-        padding: 18px;
-        margin-bottom: 20px;
-        color: #f5d0fe;
-        font-weight: 600;
-        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-    ">
-        Data preview loaded from Flask API
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+            """
+            <div style="
+                background: rgba(217,70,239,0.10);
+                border: 1px solid rgba(217,70,239,0.30);
+                backdrop-filter: blur(14px);
+                border-radius: 18px;
+                padding: 18px;
+                margin-bottom: 20px;
+                color: #f5d0fe;
+                font-weight: 600;
+                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+            ">
+                Comparison data loaded from Flask API
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
         st.subheader('Statistical Comparison Table')
 
         formatted_comparison_df = comparison_df.copy()
 
-        formatted_comparison_df['ctgan_ks_pvalue'] = formatted_comparison_df[
-            'ctgan_ks_pvalue'
-        ].map('{:.4e}'.format)
-
-        formatted_comparison_df['tvae_ks_pvalue'] = formatted_comparison_df[
-            'tvae_ks_pvalue'
-        ].map('{:.4e}'.format)
-
-        formatted_comparison_df['ctgan_wasserstein'] = formatted_comparison_df[
-            'ctgan_wasserstein'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['tvae_wasserstein'] = formatted_comparison_df[
-            'tvae_wasserstein'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['real_mean'] = formatted_comparison_df[
-            'real_mean'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['ctgan_mean'] = formatted_comparison_df[
-            'ctgan_mean'
-        ].map('{:.2f}'.format)
-
-        formatted_comparison_df['tvae_mean'] = formatted_comparison_df[
-            'tvae_mean'
-        ].map('{:.2f}'.format)
+        formatted_comparison_df['ctgan_ks_pvalue'] = formatted_comparison_df['ctgan_ks_pvalue'].map('{:.4e}'.format)
+        formatted_comparison_df['tvae_ks_pvalue'] = formatted_comparison_df['tvae_ks_pvalue'].map('{:.4e}'.format)
+        formatted_comparison_df['ctgan_wasserstein'] = formatted_comparison_df['ctgan_wasserstein'].map('{:.2f}'.format)
+        formatted_comparison_df['tvae_wasserstein'] = formatted_comparison_df['tvae_wasserstein'].map('{:.2f}'.format)
+        formatted_comparison_df['real_mean'] = formatted_comparison_df['real_mean'].map('{:.2f}'.format)
+        formatted_comparison_df['ctgan_mean'] = formatted_comparison_df['ctgan_mean'].map('{:.2f}'.format)
+        formatted_comparison_df['tvae_mean'] = formatted_comparison_df['tvae_mean'].map('{:.2f}'.format)
 
         ai_table(formatted_comparison_df)
 
@@ -945,23 +843,23 @@ elif page == 'Real vs Synthetic Comparison':
         )
 
         st.markdown(
-    """
-    <div style="
-        background: rgba(217,70,239,0.10);
-        border: 1px solid rgba(217,70,239,0.30);
-        backdrop-filter: blur(14px);
-        border-radius: 18px;
-        padding: 18px;
-        margin-bottom: 20px;
-        color: #f5d0fe;
-        font-weight: 600;
-        box-shadow: 0 8px 25px rgba(217,70,239,0.08);
-    ">
-        Fraud results loaded from Flask API
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+            f"""
+            <div style="
+                background: rgba(217,70,239,0.10);
+                border: 1px solid rgba(217,70,239,0.30);
+                backdrop-filter: blur(14px);
+                border-radius: 18px;
+                padding: 18px;
+                margin-bottom: 20px;
+                color: #f5d0fe;
+                font-weight: 600;
+                box-shadow: 0 8px 25px rgba(217,70,239,0.08);
+            ">
+                Best Performing Synthetic Model: {summary['best_model']}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
         col1, col2 = st.columns(2)
 
