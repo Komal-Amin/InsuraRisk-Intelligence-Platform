@@ -1,0 +1,12 @@
+ Volume in drive C is OS
+ Volume Serial Number is 04F4-7C47
+
+ Directory of C:\Users\komal\ai-insurance-platform\data\synthetic
+
+23/05/2026  08:35 pm    <DIR>          .
+23/05/2026  02:34 pm    <DIR>          ..
+23/05/2026  04:51 pm           431,062 baseline_auto.csv
+23/05/2026  04:44 pm         2,234,419 ctgan_auto_50k.csv
+23/05/2026  08:58 pm         2,205,505 tvae_auto_50k.csv
+               3 File(s)      4,870,986 bytes
+               2 Dir(s)  48,034,807,808 bytes free

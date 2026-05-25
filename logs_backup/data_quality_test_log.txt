@@ -1,0 +1,13 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.0.3, pluggy-1.6.0 -- C:\Program Files\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\komal\ai-insurance-platform
+plugins: anyio-4.13.0, Faker-40.19.1
+collecting ... collected 4 items
+
+tests/test_data_quality.py::test_synthetic_data_schema PASSED            [ 25%]
+tests/test_data_quality.py::test_no_missing_values PASSED                [ 50%]
+tests/test_data_quality.py::test_numeric_columns_valid PASSED            [ 75%]
+tests/test_data_quality.py::test_region_values_valid PASSED              [100%]
+
+============================== 4 passed in 1.57s ==============================

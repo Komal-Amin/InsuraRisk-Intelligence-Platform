@@ -1,0 +1,16 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\comparison_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\comparison.py
+
+C:\Users\komal\ai-insurance-platform>python -m api.app
+ * Serving Flask app 'app'
+ * Debug mode: on
+
+C:\Users\komal\ai-insurance-platform>python -m api.app
+ * Serving Flask app 'app'
+ * Debug mode: on

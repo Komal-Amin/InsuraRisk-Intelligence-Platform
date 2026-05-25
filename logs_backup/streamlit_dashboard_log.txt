@@ -1,0 +1,85 @@
+2026-05-24 15:43:22.008 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+2026-05-24 15:47:30.578 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 16:23:07.176 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 16:28:12.587 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 16:36:16.604 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72, in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 221
+    fig = px.line(
+                  ^
+IndentationError: unindent does not match any outer indentation level
+2026-05-24 16:36:16.729 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-24 16:41:55.393 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72, in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 220
+    fig = px.line(
+IndentationError: unexpected indent
+2026-05-24 16:41:55.398 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-24 16:45:03.788 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72, in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 233
+    except Exception as e:
+IndentationError: unexpected indent
+2026-05-24 16:45:03.791 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-24 16:51:41.107 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 16:58:29.446 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 16:59:42.972 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+  Stopping...
+^C

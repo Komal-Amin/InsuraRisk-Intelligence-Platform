@@ -1,0 +1,12 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py > logs_backup\streamlit_dashboard_log.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>streamlit run yourscript.py
+'streamlit' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py > logs_backup\streamlit_dashboard_log.txt 2>&1

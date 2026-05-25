@@ -1,0 +1,92 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\fraud.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\app.py
+
+C:\Users\komal\ai-insurance-platform>python -m api.app
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with watchdog (windowsapi)
+ * Debugger is active!
+ * Debugger PIN: 706-497-952
+ * Detected change in 'C:\\Users\\komal\\ai-insurance-platform\\api\\app.py', reloading
+ * Restarting with watchdog (windowsapi)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\komal\ai-insurance-platform\api\app.py", line 9, in <module>
+    from api.routes.fraud import fraud_bp
+ImportError: cannot import name 'fraud_bp' from 'api.routes.fraud' (C:\Users\komal\ai-insurance-platform\api\routes\fraud.py)
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\geographic.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\app.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\config.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\utils\data_loader.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\metrics.py
+
+C:\Users\komal\ai-insurance-platform>mkdir api\services
+
+C:\Users\komal\ai-insurance-platform>type nul > api\services\__init__.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\kpi_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\metrics.py
+
+C:\Users\komal\ai-insurance-platform>
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\fraud_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\fraud.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\fraud_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\geographic_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\geographic.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\simulation_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\simulation.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\data_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\routes\data_explorer.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\utils\logger.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\kpi_service.py
+
+C:\Users\komal\ai-insurance-platform>dir api_logs.log
+ Volume in drive C is OS
+ Volume Serial Number is 04F4-7C47
+
+ Directory of C:\Users\komal\ai-insurance-platform
+
+24/05/2026  02:39 pm               993 api_logs.log
+               1 File(s)            993 bytes
+               0 Dir(s)  40,868,335,616 bytes free
+
+C:\Users\komal\ai-insurance-platform>notepad api_logs.log
+
+C:\Users\komal\ai-insurance-platform>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>mkdir logs_backup
+A subdirectory or file logs_backup already exists.
+
+C:\Users\komal\ai-insurance-platform>^A
+'' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\komal\ai-insurance-platform>
+C:\Users\komal\ai-insurance-platform>

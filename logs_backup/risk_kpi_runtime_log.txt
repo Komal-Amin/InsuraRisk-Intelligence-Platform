@@ -1,0 +1,54 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>notepad dashboard\streamlit_app.py
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-24 16:36:15.666 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+  Stopping...
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-24 16:41:54.451 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+  Stopping...
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-24 16:45:02.870 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+  Stopping...
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-24 16:51:22.830 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+  Stopping...
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-24 16:58:08.629 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501

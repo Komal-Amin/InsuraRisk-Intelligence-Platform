@@ -1,0 +1,7 @@
+
+=== Monte Carlo Results ===
+Mean Loss: 616,685,087.74
+Standard Deviation: 1,931,896.71
+5th Percentile (Best Case): 613,560,292.66
+95th Percentile (Worst Case): 619,819,837.24
+99th Percentile (Catastrophe): 620,942,510.52

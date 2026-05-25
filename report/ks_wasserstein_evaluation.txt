@@ -1,0 +1,32 @@
+KS-Test and Wasserstein Evaluation Documentation
+
+Purpose:
+This evaluation compares the real baseline dataset with the CTGAN and TVAE synthetic datasets.
+
+Methods Used:
+
+1. KS-Test:
+The Kolmogorov-Smirnov test checks whether two datasets follow a similar distribution.
+A higher p-value means the synthetic data is more similar to the original data.
+
+2. Wasserstein Distance:
+Wasserstein distance measures how far two distributions are from each other.
+A lower value means the synthetic data is closer to the original data.
+
+Columns Evaluated:
+- premium
+- claim_amount
+
+Models Compared:
+- CTGAN
+- TVAE
+
+Interpretation:
+The better model is the one with:
+- higher KS-test p-values
+- lower Wasserstein distances
+- similar mean, standard deviation, and distribution shape
+
+Conclusion:
+CTGAN and TVAE were evaluated against the baseline dataset using statistical tests.
+These results help determine which synthetic data model better preserves the original insurance data patterns.

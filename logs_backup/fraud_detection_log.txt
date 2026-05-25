@@ -1,0 +1,8 @@
+Fraud detection completed.
+Saved to data/processed/fraud_detected_auto.csv
+       policy_id   premium  claim_amount  predicted_fraud
+0  sdv-id-SEgbSE  18327.56      17115.62                0
+1  sdv-id-UIvAxk  17097.60       5603.13                0
+2  sdv-id-AXmXVf   9369.43      25395.88                0
+3  sdv-id-bwhwAP  19866.06       9461.02                0
+4  sdv-id-sNzsZV  16590.72       7885.70                0

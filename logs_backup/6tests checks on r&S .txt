@@ -1,0 +1,50 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>notepad tests\test_api.py
+
+C:\Users\komal\ai-insurance-platform>python -m pytest tests\test_api.py -v
+===================== test session starts =====================
+platform win32 -- Python 3.13.1, pytest-9.0.3, pluggy-1.6.0 -- C:\Program Files\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\komal\ai-insurance-platform
+plugins: anyio-4.13.0, Faker-40.19.1
+collected 6 items
+
+tests/test_api.py::TestAPIHealth::test_kpis PASSED       [ 16%]
+tests/test_api.py::TestFraudAPI::test_fraud PASSED       [ 33%]
+tests/test_api.py::TestGeographicAPI::test_geographic PASSED [ 50%]
+tests/test_api.py::TestSimulationAPI::test_simulation PASSED [ 66%]
+tests/test_api.py::TestDataPreviewAPI::test_data_preview PASSED[ 83%]
+tests/test_api.py::TestComparisonAPI::test_comparison PASSED [100%]
+
+===================== 6 passed in 17.52s ======================
+
+C:\Users\komal\ai-insurance-platform>python -m pytest tests\test_api.py -v > logs_backup\api_test_log_updated.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>notepad dashboard\streamlit_app.py
+
+C:\Users\komal\ai-insurance-platform>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>python
+Python 3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas as pd
+>>> df = pd.read_csv('data/synthetic/ctgan_auto_50k.csv')
+>>> print(df.columns)
+Index(['policy_id', 'premium', 'claim_amount', 'fraud_flag', 'region',
+       'insurance_type'],
+      dtype='object')
+>>> exit()
+
+C:\Users\komal\ai-insurance-platform>notepad dashboard\streamlit_app.py
+
+C:\Users\komal\ai-insurance-platform>notepad api\services\comparison_service.py
+
+C:\Users\komal\ai-insurance-platform>notepad dashboard\streamlit_app.py
+
+C:\Users\komal\ai-insurance-platform>notepad dashboard\streamlit_app.py
+
+C:\Users\komal\ai-insurance-platform>

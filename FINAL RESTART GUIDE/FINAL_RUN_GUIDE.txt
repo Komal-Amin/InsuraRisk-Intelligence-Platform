@@ -1,0 +1,18 @@
+1. Start Flask:
+python -m api.app
+
+2. Start Streamlit:
+python -m streamlit run dashboard\streamlit_app.py
+
+3. Start Jupyter:
+python -m notebook
+
+4. Open Dashboard:
+http://localhost:8501
+
+5. API Endpoints:
+http://localhost:5000/api/kpis
+http://localhost:5000/api/fraud
+http://localhost:5000/api/geographic
+http://localhost:5000/api/simulation/monte-carlo
+http://localhost:5000/api/data-preview

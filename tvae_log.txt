@@ -1,0 +1,18 @@
+C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\sdv\single_table\base.py:178: FutureWarning: The 'SingleTableMetadata' is deprecated. Please use the new 'Metadata' class for synthesizers.
+  warnings.warn(DEPRECATION_MSG, FutureWarning)
+C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\sdv\single_table\base.py:134: UserWarning: We strongly recommend saving the metadata using 'save_to_json' for replicability in future SDV versions.
+  warnings.warn(
+TVAE model saved.
+Synthetic data generated and saved.
+Generating report ...
+
+|          | 0/6 [00:00<?, ?it/s]|(1/2) Evaluating Column Shapes: |          | 0/6 [00:00<?, ?it/s]|(1/2) Evaluating Column Shapes: |########3 | 5/6 [00:00<00:00, 45.18it/s]|(1/2) Evaluating Column Shapes: |##########| 6/6 [00:00<00:00, 44.16it/s]|
+Column Shapes Score: 86.74%
+
+|          | 0/15 [00:00<?, ?it/s]|(2/2) Evaluating Column Pair Trends: |          | 0/15 [00:00<?, ?it/s]|(2/2) Evaluating Column Pair Trends: |#######3  | 11/15 [00:00<00:00, 101.73it/s]|(2/2) Evaluating Column Pair Trends: |##########| 15/15 [00:00<00:00, 88.13it/s]| 
+Column Pair Trends Score: nan%
+
+Overall Score (Average): 86.74%
+
+Quality Score:
+0.867432

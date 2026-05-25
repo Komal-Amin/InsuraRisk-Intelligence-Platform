@@ -1,0 +1,10 @@
+ Volume in drive C is OS
+ Volume Serial Number is 04F4-7C47
+
+ Directory of C:\Users\komal\ai-insurance-platform\models\tvae
+
+23/05/2026  08:35 pm    <DIR>          .
+23/05/2026  02:34 pm    <DIR>          ..
+23/05/2026  08:58 pm           463,960 tvae_auto.pkl
+               1 File(s)        463,960 bytes
+               2 Dir(s)  48,034,680,832 bytes free

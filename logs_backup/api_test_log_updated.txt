@@ -1,0 +1,15 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.0.3, pluggy-1.6.0 -- C:\Program Files\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\komal\ai-insurance-platform
+plugins: anyio-4.13.0, Faker-40.19.1
+collecting ... collected 6 items
+
+tests/test_api.py::TestAPIHealth::test_kpis PASSED                       [ 16%]
+tests/test_api.py::TestFraudAPI::test_fraud PASSED                       [ 33%]
+tests/test_api.py::TestGeographicAPI::test_geographic PASSED             [ 50%]
+tests/test_api.py::TestSimulationAPI::test_simulation PASSED             [ 66%]
+tests/test_api.py::TestDataPreviewAPI::test_data_preview PASSED          [ 83%]
+tests/test_api.py::TestComparisonAPI::test_comparison PASSED             [100%]
+
+============================= 6 passed in 17.70s ==============================

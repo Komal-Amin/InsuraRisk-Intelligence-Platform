@@ -1,0 +1,134 @@
+Folder PATH listing for volume OS
+Volume serial number is 04F4-7C47
+C:.
+¦   .env.txt
+¦   .gitignore
+¦   ai-insurance-platform
+¦   api_logs.log
+¦   excel_processor.py
+¦   exploratory_analysis.ipynb
+¦   final_api_log.txt
+¦   final_dashboard_log.txt
+¦   fraud_detection_log.txt
+¦   FYP_Master_Planner.xlsx
+¦   glm_pricing_log.txt
+¦   model_comparison.ipynb
+¦   montecarlo_log.txt
+¦   output.txt
+¦   requirements.txt
+¦   rf_fraud_log.txt
+¦   sec 5.3.sql
+¦   sec5_database_setup.sql
+¦   SQL data-1779548857301
+¦   streamlit_app output.txt
+¦   streamlit_app.py
+¦   streamlit_log.txt
+¦   train_ctgan.py
+¦   tvae_log.txt
+¦   Untitled.ipynb
+¦   
++---.ipynb_checkpoints
+¦       exploratory_analysis-checkpoint.ipynb
+¦       model_comparison-checkpoint.ipynb
+¦       Untitled-checkpoint.ipynb
+¦       
++---api
+¦   ¦   app.py
+¦   ¦   config.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---routes
+¦   ¦   ¦   data_explorer.py
+¦   ¦   ¦   fraud.py
+¦   ¦   ¦   geographic.py
+¦   ¦   ¦   metrics.py
+¦   ¦   ¦   simulation.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           data_explorer.cpython-313.pyc
+¦   ¦           fraud.cpython-313.pyc
+¦   ¦           geographic.cpython-313.pyc
+¦   ¦           metrics.cpython-313.pyc
+¦   ¦           simulation.cpython-313.pyc
+¦   ¦           __init__.cpython-313.pyc
+¦   ¦           
+¦   +---services
+¦   ¦   ¦   data_service.py
+¦   ¦   ¦   fraud_service.py
+¦   ¦   ¦   geographic_service.py
+¦   ¦   ¦   kpi_service.py
+¦   ¦   ¦   simulation_service.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           data_service.cpython-313.pyc
+¦   ¦           fraud_service.cpython-313.pyc
+¦   ¦           geographic_service.cpython-313.pyc
+¦   ¦           kpi_service.cpython-313.pyc
+¦   ¦           simulation_service.cpython-313.pyc
+¦   ¦           __init__.cpython-313.pyc
+¦   ¦           
+¦   +---utils
+¦   ¦   ¦   data_loader.py
+¦   ¦   ¦   logger.py
+¦   ¦   ¦   metrics.py
+¦   ¦   ¦   monte_carlo.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           data_loader.cpython-313.pyc
+¦   ¦           logger.cpython-313.pyc
+¦   ¦           monte_carlo.cpython-313.pyc
+¦   ¦           __init__.cpython-313.pyc
+¦   ¦           
+¦   +---__pycache__
+¦           app.cpython-313.pyc
+¦           config.cpython-313.pyc
+¦           __init__.cpython-313.pyc
+¦           
++---dashboard
+¦   ¦   streamlit_app.py
+¦   ¦   
+¦   +---components
+¦   +---pages
++---data
+¦   +---processed
+¦   ¦       fraud_detected_auto.csv
+¦   ¦       
+¦   +---raw
+¦   +---synthetic
+¦           baseline_auto.csv
+¦           ctgan_auto_50k.csv
+¦           tvae_auto_50k.csv
+¦           
++---logs
+¦       api_log.txt
+¦       ctgan_log.txt
+¦       
++---logs_backup
+¦       backend_refactor_log.txt
+¦       ctgan_training_setup_log.txt
+¦       project_structure_log.txt
+¦       
++---models
+¦   +---ctgan
+¦   ¦       ctgan_auto.pkl
+¦   ¦       train_tvae.py
+¦   ¦       
+¦   +---ml
+¦   ¦       fraud_detection.py
+¦   ¦       glm_pricing.pkl
+¦   ¦       glm_pricing.py
+¦   ¦       monte_carlo.py
+¦   ¦       rf_fraud.pkl
+¦   ¦       rf_fraud.py
+¦   ¦       
+¦   +---tvae
+¦           tvae_auto.pkl
+¦           
++---notebooks
++---report
+¦       ks_wasserstein_evaluation.txt
+¦       
++---tests

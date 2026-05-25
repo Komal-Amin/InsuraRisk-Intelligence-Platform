@@ -1,0 +1,141 @@
+SECTION 9.3 — TEST CASES TABLE
+
+--------------------------------------------------------------------
+TC-001
+Test Name:
+API health endpoint
+
+What Was Tested:
+Flask backend API response
+
+Expected Output:
+HTTP 200 response with valid JSON
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-002
+Test Name:
+CTGAN dataset schema validation
+
+What Was Tested:
+Synthetic dataset contains all required columns
+
+Expected Output:
+All required columns present
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-003
+Test Name:
+Loss ratio calculation
+
+What Was Tested:
+KPI loss ratio generation
+
+Expected Output:
+Loss ratio between 0 and 5
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-004
+Test Name:
+Monte Carlo simulation
+
+What Was Tested:
+Simulation endpoint generates valid outputs
+
+Expected Output:
+Mean, P95, and P99 values returned
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-005
+Test Name:
+Invalid dataset handling
+
+What Was Tested:
+API handling of invalid requests
+
+Expected Output:
+Proper error response
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-006
+Test Name:
+Fraud flag validation
+
+What Was Tested:
+fraud_flag contains only 0 or 1
+
+Expected Output:
+Valid binary fraud values
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-007
+Test Name:
+Dashboard rendering
+
+What Was Tested:
+Streamlit dashboard page loading
+
+Expected Output:
+All pages render successfully
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-008
+Test Name:
+PostgreSQL connectivity
+
+What Was Tested:
+Database connection and query execution
+
+Expected Output:
+Queries execute successfully
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-009
+Test Name:
+Data quality validation
+
+What Was Tested:
+Missing values and numeric validity checks
+
+Expected Output:
+No missing/invalid values
+
+Actual Result:
+PASSED
+
+--------------------------------------------------------------------
+TC-010
+Test Name:
+API integration with dashboard
+
+What Was Tested:
+Streamlit pages consuming Flask APIs
+
+Expected Output:
+Dynamic API-driven dashboard updates
+
+Actual Result:
+PASSED

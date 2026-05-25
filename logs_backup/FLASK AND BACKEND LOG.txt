@@ -1,0 +1,18 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>python models\ml\fraud_detection.py > logs_backup\fraud_detection_log.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>python models\ml\rf_fraud.py > logs_backup\rf_fraud_log.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>python models\ml\glm_pricing.py > logs_backup\glm_pricing_log.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>python models\ml\monte_carlo.py > logs_backup\monte_carlo_log.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>python -m api.app > logs_backup\flask_api_log.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>python -m api.app > logs_backup\flask_api_log.txt 2>&1

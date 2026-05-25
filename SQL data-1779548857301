@@ -1,0 +1,3 @@
+"id","name","insurance_type","n_simulations","mean_loss","p95_loss","p99_loss"
+1,"ctgan_auto_50k","auto",1000,0.00,0.00,0.00
+2,"ctgan_auto_50k","auto",1000,0.00,0.00,0.00

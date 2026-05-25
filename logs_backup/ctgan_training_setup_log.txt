@@ -1,0 +1,178 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>notepad train_ctgan.py
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py
+Generated 10000 rows. Saved to data/synthetic/baseline_auto.csv
+
+C:\Users\komal\ai-insurance-platform>from sdv.tabular import CTGAN
+'from' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\komal\ai-insurance-platform>notepad train_ctgan.py
+
+C:\Users\komal\ai-insurance-platform>pip install sdv
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: sdv in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (1.36.3)
+Requirement already satisfied: boto3<2.0.0,>=1.28 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (1.43.14)
+Requirement already satisfied: botocore<2.0.0,>=1.31 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (1.43.14)
+Requirement already satisfied: cloudpickle>=2.1.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (3.1.2)
+Requirement already satisfied: graphviz>=0.13.2 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (0.21)
+Requirement already satisfied: numpy>=2.1.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (2.4.4)
+Requirement already satisfied: pandas<3,>=2.2.3 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (2.3.3)
+Requirement already satisfied: tqdm>=4.29 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (4.67.3)
+Requirement already satisfied: copulas>=0.12.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (0.14.1)
+Requirement already satisfied: ctgan>=0.11.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (0.12.1)
+Requirement already satisfied: deepecho>=0.7.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (0.8.1)
+Requirement already satisfied: rdt>=1.18.2 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (1.21.0)
+Requirement already satisfied: sdmetrics>=0.28.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (0.28.0)
+Requirement already satisfied: platformdirs>=4.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (4.9.6)
+Requirement already satisfied: pyyaml>=6.0.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sdv) (6.0.3)
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from boto3<2.0.0,>=1.28->sdv) (1.1.0)
+Requirement already satisfied: s3transfer<0.18.0,>=0.17.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from boto3<2.0.0,>=1.28->sdv) (0.17.0)
+Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from botocore<2.0.0,>=1.31->sdv) (2.9.0.post0)
+Requirement already satisfied: urllib3!=2.2.0,<3,>=1.25.4 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from botocore<2.0.0,>=1.31->sdv) (2.7.0)
+Requirement already satisfied: pytz>=2020.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from pandas<3,>=2.2.3->sdv) (2026.2)
+Requirement already satisfied: tzdata>=2022.7 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from pandas<3,>=2.2.3->sdv) (2026.1)
+Requirement already satisfied: six>=1.5 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from python-dateutil<3.0.0,>=2.1->botocore<2.0.0,>=1.31->sdv) (1.17.0)
+Requirement already satisfied: plotly>=5.12.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from copulas>=0.12.1->sdv) (6.7.0)
+Requirement already satisfied: scipy>=1.14.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from copulas>=0.12.1->sdv) (1.17.1)
+Requirement already satisfied: torch>=2.6.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from ctgan>=0.11.1->sdv) (2.12.0)
+Requirement already satisfied: narwhals>=1.15.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from plotly>=5.12.0->copulas>=0.12.1->sdv) (2.21.2)
+Requirement already satisfied: packaging in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from plotly>=5.12.0->copulas>=0.12.1->sdv) (26.1)
+Requirement already satisfied: scikit-learn>=1.5.2 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from rdt>=1.18.2->sdv) (1.8.0)
+Requirement already satisfied: Faker!=37.11.0,>=17 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from rdt>=1.18.2->sdv) (40.19.1)
+Requirement already satisfied: joblib>=1.3.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from scikit-learn>=1.5.2->rdt>=1.18.2->sdv) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.2.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from scikit-learn>=1.5.2->rdt>=1.18.2->sdv) (3.6.0)
+Requirement already satisfied: filelock in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from torch>=2.6.0->ctgan>=0.11.1->sdv) (3.29.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from torch>=2.6.0->ctgan>=0.11.1->sdv) (4.15.0)
+Requirement already satisfied: setuptools<82 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from torch>=2.6.0->ctgan>=0.11.1->sdv) (81.0.0)
+Requirement already satisfied: sympy>=1.13.3 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from torch>=2.6.0->ctgan>=0.11.1->sdv) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from torch>=2.6.0->ctgan>=0.11.1->sdv) (3.6.1)
+Requirement already satisfied: jinja2 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from torch>=2.6.0->ctgan>=0.11.1->sdv) (3.1.6)
+Requirement already satisfied: fsspec>=0.8.5 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from torch>=2.6.0->ctgan>=0.11.1->sdv) (2026.3.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from sympy>=1.13.3->torch>=2.6.0->ctgan>=0.11.1->sdv) (1.3.0)
+Requirement already satisfied: colorama in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from tqdm>=4.29->sdv) (0.4.6)
+Requirement already satisfied: MarkupSafe>=2.0 in C:\Users\komal\AppData\Roaming\Python\Python313\site-packages (from jinja2->torch>=2.6.0->ctgan>=0.11.1->sdv) (3.0.3)
+
+[notice] A new release of pip is available: 26.0.1 -> 26.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\Users\komal\ai-insurance-platform>data/synthetic/baseline_auto.csv
+'data' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\komal\ai-insurance-platform>data/synthetic/baseline_auto.csv
+'data' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\komal\ai-insurance-platform>dir data\synthetic
+ Volume in drive C is OS
+ Volume Serial Number is 04F4-7C47
+
+ Directory of C:\Users\komal\ai-insurance-platform\data\synthetic
+
+23/05/2026  04:01 pm    <DIR>          .
+23/05/2026  02:34 pm    <DIR>          ..
+23/05/2026  04:10 pm           431,062 baseline_auto.csv
+               1 File(s)        431,062 bytes
+               2 Dir(s)  62,872,645,632 bytes free
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py
+Generated 10000 rows. Saved to data/synthetic/baseline_auto.csv
+Traceback (most recent call last):
+  File "C:\Users\komal\ai-insurance-platform\train_ctgan.py", line 35, in <module>
+    from sdv.tabular import CTGAN
+ModuleNotFoundError: No module named 'sdv.tabular'
+
+C:\Users\komal\ai-insurance-platform>dir data\synthetic
+ Volume in drive C is OS
+ Volume Serial Number is 04F4-7C47
+
+ Directory of C:\Users\komal\ai-insurance-platform\data\synthetic
+
+23/05/2026  04:01 pm    <DIR>          .
+23/05/2026  02:34 pm    <DIR>          ..
+23/05/2026  04:21 pm           431,062 baseline_auto.csv
+               1 File(s)        431,062 bytes
+               2 Dir(s)  62,866,333,696 bytes free
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py
+Generated 10000 rows. Saved to data/synthetic/baseline_auto.csv
+Traceback (most recent call last):
+  File "C:\Users\komal\ai-insurance-platform\train_ctgan.py", line 35, in <module>
+    from sdv.tabular import CTGAN
+ModuleNotFoundError: No module named 'sdv.tabular'
+
+C:\Users\komal\ai-insurance-platform>notepad train_ctgan.py
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py
+Generated 10000 rows. Saved to data/synthetic/baseline_auto.csv
+Traceback (most recent call last):
+  File "C:\Users\komal\ai-insurance-platform\train_ctgan.py", line 35, in <module>
+    from sdv.single.tabular import CTGAN
+ModuleNotFoundError: No module named 'sdv.single'
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py
+Generated 10000 rows. Saved to data/synthetic/baseline_auto.csv
+Traceback (most recent call last):
+  File "C:\Users\komal\ai-insurance-platform\train_ctgan.py", line 35, in <module>
+    from sdv.single.tabular import CTGAN
+ModuleNotFoundError: No module named 'sdv.single'
+
+C:\Users\komal\ai-insurance-platform>notepad train_ctgan.py
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py
+Generated 10000 rows. Saved to data/synthetic/baseline_auto.csv
+C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\sdv\single_table\base.py:178: FutureWarning: The 'SingleTableMetadata'is deprecated. Please use the new 'Metadata' class for synthesizers.
+  warnings.warn(DEPRECATION_MSG, FutureWarning)
+C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\sdv\single_table\base.py:134: UserWarning: We strongly recommend saving the metadata using 'save_to_json' for replicability in future SDV versions.
+  warnings.warn(
+Model saved.
+Synthetic data saved: 50,000 rows
+Generating report ...
+
+(1/2) Evaluating Column Shapes: |█| 6/6 [00:00<00:00, 107.73it/
+Column Shapes Score: 93.4%
+
+(2/2) Evaluating Column Pair Trends: |█| 15/15 [00:00<00:00, 20
+Column Pair Trends Score: nan%
+
+Overall Score (Average): 93.4%
+
+0.9340399999999999
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py > output.txt
+C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\sdv\single_table\base.py:178: FutureWarning: The 'SingleTableMetadata'is deprecated. Please use the new 'Metadata' class for synthesizers.
+  warnings.warn(DEPRECATION_MSG, FutureWarning)
+C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\sdv\single_table\base.py:134: UserWarning: We strongly recommend saving the metadata using 'save_to_json' for replicability in future SDV versions.
+  warnings.warn(
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py > output.txtpython train_ctgan.py > output.txtpython train_ctgan.py > output.txt
+python: can't open file 'C:\\Users\\komal\\ai-insurance-platform\\train_ctgan.py': [Errno 2] No such file or directory
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py > output.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py > output.txt 2>&1
+
+C:\Users\komal\ai-insurance-platform>notepad output.txt
+
+C:\Users\komal\ai-insurance-platform>dir output.txt
+ Volume in drive C is OS
+ Volume Serial Number is 04F4-7C47
+
+ Directory of C:\Users\komal\ai-insurance-platform
+
+23/05/2026  04:51 pm               120 output.txt
+               1 File(s)            120 bytes
+               0 Dir(s)  60,819,890,176 bytes free
+
+C:\Users\komal\ai-insurance-platform>python train_ctgan.py
+python: can't open file 'C:\\Users\\komal\\ai-insurance-platform\\train_ctgan.py': [Errno 2] No such file or directory
+
+C:\Users\komal\ai-insurance-platform>notepad train_ctgan.py
+
+C:\Users\komal\ai-insurance-platform>p

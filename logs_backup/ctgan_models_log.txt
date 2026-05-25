@@ -1,0 +1,11 @@
+ Volume in drive C is OS
+ Volume Serial Number is 04F4-7C47
+
+ Directory of C:\Users\komal\ai-insurance-platform\models\ctgan
+
+23/05/2026  08:31 pm    <DIR>          .
+23/05/2026  02:34 pm    <DIR>          ..
+23/05/2026  04:44 pm         1,051,438 ctgan_auto.pkl
+23/05/2026  08:31 pm             1,208 train_tvae.py
+               2 File(s)      1,052,646 bytes
+               2 Dir(s)  48,034,746,368 bytes free

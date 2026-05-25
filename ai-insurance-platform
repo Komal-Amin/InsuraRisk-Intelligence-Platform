@@ -1,0 +1,32 @@
+import pandas as pd 
+import numpy as np 
+from scipy import stats 
+import random 
+ 
+# Set a random seed so results are the same every time we run this 
+np.random.seed(42) 
+random.seed(42) 
+ 
+NUM_ROWS = 10000  # Generate 10,000 fake insurance records 
+ 
+# Pakistani provinces — our heatmap will colour these differently 
+PROVINCES = ['Punjab', 'Sindh', 'KPK', 'Balochistan', 'AJK', 'GB'] 
+INSURANCE_TYPES = ['auto', 'health', 'property'] 
+ 
+def generate_auto_data(n): 
+    # Premium (price of insurance) follows LogNormal distribution 
+    # LogNormal means most values are moderate, but a few are very high 
+    premiums = np.random.lognormal(mean=10, sigma=0.5, size=n) 
+    claims = np.random.lognormal(mean=9, sigma=0.8, size=n) 
+    # fraud_flag: 1 = fraud, 0 = genuine. About 5% are fraud. 
+    fraud_flags = np.random.binomial(1, 0.05, size=n) 
+    return pd.DataFrame({ 
+        'policy_id': [f'AUTO-{i:06d}' for i in range(n)], 
+        'premium': premiums.round(2), 
+        'claim_amount': claims.round(2), 
+        'fraud_flag': fraud_flags, 
+        'region': np.random.choice(PROVINCES, size=n),})
+if __name__ == '__main__': 
+    df = generate_auto_data(NUM_ROWS) 
+    df.to_csv('data/synthetic/baseline_auto.csv', index=False) 
+    print(f'Generated {len(df)} rows. Saved to data/synthetic/baseline_auto.csv') 

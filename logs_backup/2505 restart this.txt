@@ -1,0 +1,904 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\komal>cd C:\Users\komal\ai-insurance-platform
+
+C:\Users\komal\ai-insurance-platform>notepad api\app.py
+
+C:\Users\komal\ai-insurance-platform>notepad dashboard\streamlit_app.py
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-24 19:36:05.520 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+  Stopping...
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-24 19:39:49.608 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+2026-05-24 19:40:01.495 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 19:40:01.521 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 19:42:10.660 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 19:42:10.694 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 19:59:38.566 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 19:59:38.597 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:13:18.611 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:13:18.659 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:19:56.510 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:19:56.582 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:27:30.364 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 288
+    filtered_df = comparison_df[
+IndentationError: unexpected indent
+2026-05-24 20:27:30.425 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-24 20:27:30.970 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 288
+    filtered_df = comparison_df[
+IndentationError: unexpected indent
+2026-05-24 20:27:30.973 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-24 20:29:20.291 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:29:20.362 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:29:32.569 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:29:32.655 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:34:07.823 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 20:34:07.890 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 21:36:06.651 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 21:36:06.724 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 21:39:32.436 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 21:39:32.521 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 22:05:18.924 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 484
+    stat_df = pd.DataFrame(stat_results)
+                                        ^
+IndentationError: unindent does not match any outer indentationlevel
+2026-05-24 22:05:18.928 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-24 22:08:23.739 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 464
+    stat_results = []
+IndentationError: unexpected indent
+2026-05-24 22:08:23.742 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-24 22:21:27.556 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 22:21:27.698 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 22:21:27.762 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 22:41:10.977 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 22:41:11.115 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:08:15.207 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:08:49.017 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:08:49.045 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:09:20.584 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:09:20.624 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:09:49.862 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:09:49.955 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:15:30.729 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:16:01.385 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:16:01.405 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:16:30.579 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:16:30.616 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:16:55.389 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:16:55.455 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:41:40.036 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:42:21.561 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:42:56.179 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-24 23:55:28.582 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:12:45.011 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:13:15.909 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:13:15.940 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:13:23.236 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:13:27.834 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:13:27.873 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:23:50.258 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:26:04.326 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:26:33.890 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:26:33.926 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:26:51.988 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:26:52.036 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:35:16.892 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:54:02.352 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:54:29.636 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:54:29.724 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:54:51.550 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:54:51.661 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:55:02.711 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:55:02.812 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:56:25.965 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:56:26.075 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:57:47.999 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 00:57:48.114 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:18:06.321 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:18:24.733 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:18:35.853 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:18:35.949 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:18:36.050 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:18:44.759 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:19:54.543 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:19:54.631 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:19:54.718 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:20:16.538 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:27:55.733 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:29:23.932 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:30:56.002 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:30:56.100 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:30:56.213 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:31:22.701 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:39:45.700 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 01:53:18.990 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 441
+    formatted_comparison_df['tvae_ks_pvalue'] = formatted_comparison_df['tvae_ks_pvalue'].map('{:.4e}'.format)
+SyntaxError: expected 'except' or 'finally' block
+2026-05-25 01:53:18.993 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 01:55:12.345 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 438
+    formatted_comparison_df = comparison_df.copy()
+IndentationError: unexpected indent
+2026-05-25 01:55:12.348 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 02:01:51.761 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 437
+    st.subheader(
+IndentationError: unexpected indent
+2026-05-25 02:01:51.764 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 02:09:53.821 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:09:53.941 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:09:54.048 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:16:27.438 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:16:35.691 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:16:41.825 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:16:41.932 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:16:42.025 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:17:22.385 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:17:56.910 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:17:57.035 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:17:57.174 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:22:02.008 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 02:32:22.069 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 03:04:45.175 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 03:16:02.931 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 03:23:33.919 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 303
+    s1, s2, s3, s4 = st.columns(4)
+SyntaxError: expected 'except' or 'finally' block
+2026-05-25 03:23:33.921 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 03:25:16.117 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 300
+    st.subheader('System Status')
+IndentationError: unexpected indent
+2026-05-25 03:25:16.121 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+  Stopping...
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-25 14:28:33.108 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+  Stopping...
+
+C:\Users\komal\ai-insurance-platform>python -m streamlit run dashboard\streamlit_app.py
+2026-05-25 14:35:08.776 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.194:8501
+
+2026-05-25 14:37:37.714 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 14:38:04.564 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:21:51.390 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 389
+    st.markdown(
+IndentationError: expected an indented block after 'with' statement on line 387
+2026-05-25 15:21:51.446 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 15:23:53.863 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 383
+    st.subheader('Platform Capabilities')
+IndentationError: unexpected indent
+2026-05-25 15:23:53.867 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 15:24:20.378 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 383
+    st.subheader('Platform Capabilities')
+SyntaxError: expected 'except' or 'finally' block
+2026-05-25 15:24:20.382 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 15:40:53.659 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:10.094 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:16.458 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:16.576 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:16.701 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:20.517 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:27.034 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:27.188 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 15:41:27.338 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:00:51.552 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:12:07.286 Script compilation error
+Traceback (most recent call last):
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 591, in _run_script
+    code = self._script_cache.get_bytecode(script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\script_cache.py", line 72,in get_bytecode
+    filebody = magic.add_magic(filebody, script_path)
+  File "C:\Users\komal\AppData\Roaming\Python\Python313\site-packages\streamlit\runtime\scriptrunner\magic.py", line 45, in add_magic
+    tree = ast.parse(code, script_path, "exec")
+  File "C:\Program Files\Python313\Lib\ast.py", line 54, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\komal\ai-insurance-platform\dashboard\streamlit_app.py", line 1120
+    st.markdown(
+    ^^
+IndentationError: expected an indented block after 'if' statement on line 1118
+2026-05-25 16:12:07.291 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-05-25 16:13:53.999 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:14:13.797 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:14:20.601 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:14:20.693 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:14:20.785 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:14:27.716 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:24:15.368 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:29:23.267 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:32:03.544 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:34:43.673 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:37:42.153 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:37:50.523 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:38:38.440 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:38:38.526 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:38:38.613 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:38:46.927 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:39:06.717 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:39:06.809 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:39:06.861 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-05-25 16:44:27.343 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
